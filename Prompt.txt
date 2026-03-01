@@ -1,0 +1,8 @@
+I need an idea / topic for my final year project(fyp). Machine Learning(ml) has to be integrated to the fyp. Could be an app or a web-based system. My target is achieving a first class for the fyp. So, both our objective should be that. So, I want you to get into that first class mode which we would be on for a YEAR to achieve that first class. Take these into consideration; 1. I have learned and a bit confident with regression and classification under ml. 2. I have realized that the more simpler the fyp idea to implement the outcome (result) the better (Implementation and Documentation wise). 3. FYP idea should be an innovative solution using ml for an existing problem. 3. A senior had done an fyp where an image of a shoe would be uploaded and determined whether it's a fake brand shoe or not. Need to find relevant datasets and all that too. I guess all that depends on the solution for the problem including how many ml models I would have to train and whether I would have design a mobile app or a web-based system. Take THOROUGHLY into consideration our objective is a first class with an easy to implement, simple fyp. So, Begin, First, I need to get the fyp idea approved to begin (Idea = an innovative solution for the problem). Let's begin this wonderful journey together of landing a first class for the fyp. 
+
+
+
+
+
+
+

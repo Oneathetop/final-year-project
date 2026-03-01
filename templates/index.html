@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Student Risk Prediction</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    .box { padding: 16px; border: 1px solid #ddd; border-radius: 8px; max-width: 700px; }
+    .result { margin-top: 20px; white-space: pre-wrap; background: #f7f7f7; padding: 12px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Student Academic Risk Prediction</h2>
+
+  <div class="box">
+    <p><b>Upload a Student CSV</b> (e.g., <code>student-mat.csv</code> or <code>student-por.csv</code>)</p>
+    <input type="file" id="fileInput" accept=".csv" />
+    <button onclick="sendCSV()">Predict from CSV (first row)</button>
+
+    <div class="result" id="output">Result will appear here...</div>
+  </div>
+
+  <script>
+    async function sendCSV() {
+      const fileInput = document.getElementById("fileInput");
+      if (!fileInput.files.length) {
+        alert("Please choose a CSV file first.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      const res = await fetch("/predict_csv", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await res.json();
+      document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
