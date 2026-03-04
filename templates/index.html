@@ -1,44 +1,65 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <title>Student Risk Prediction</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
-    .box { padding: 16px; border: 1px solid #ddd; border-radius: 8px; max-width: 700px; }
-    .result { margin-top: 20px; white-space: pre-wrap; background: #f7f7f7; padding: 12px; border-radius: 8px; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Student Academic Risk Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-  <h2>Student Academic Risk Prediction</h2>
 
-  <div class="box">
-    <p><b>Upload a Student CSV</b> (e.g., <code>student-mat.csv</code> or <code>student-por.csv</code>)</p>
-    <input type="file" id="fileInput" accept=".csv" />
-    <button onclick="sendCSV()">Predict from CSV (first row)</button>
+    <h1>Student Academic Risk Prediction System</h1>
 
-    <div class="result" id="output">Result will appear here...</div>
-  </div>
+    <div class="container">
 
-  <script>
-    async function sendCSV() {
-      const fileInput = document.getElementById("fileInput");
-      if (!fileInput.files.length) {
-        alert("Please choose a CSV file first.");
-        return;
-      }
+        <!-- Input Form -->
+        <div class="box">
 
-      const formData = new FormData();
-      formData.append("file", fileInput.files[0]);
+            <h3>Enter Student Information</h3>
 
-      const res = await fetch("/predict_csv", {
-        method: "POST",
-        body: formData
-      });
+            <label>Study Time</label>
+            <input id="studytime" type="number" min="1" max="4">
 
-      const data = await res.json();
-      document.getElementById("output").textContent = JSON.stringify(data, null, 2);
-    }
-  </script>
+            <label>Failures</label>
+            <input id="failures" type="number" min="0">
+
+            <label>Absences</label>
+            <input id="absences" type="number" min="0">
+
+            <button onclick="predictStudent()">Predict Performance</button>
+
+        </div>
+
+        <!-- Results -->
+        <div class="box">
+
+            <h3>Prediction Result</h3>
+
+            <div id="result" class="result">
+                Waiting for prediction...
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CSV Upload Section -->
+    <div class="box csv-section">
+
+        <h3>Batch Prediction (CSV Upload)</h3>
+
+        <input type="file" id="fileInput" accept=".csv">
+
+        <button onclick="sendCSV()">Predict from CSV</button>
+
+        <div id="csvResult" class="result"></div>
+
+    </div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
 </body>
+
 </html>
