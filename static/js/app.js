@@ -22,11 +22,15 @@ async function predictStudent(){
 
     const result = await res.json();
 
-    document.getElementById("result").innerHTML =
+    if (result.error) {
+        document.getElementById("result").innerHTML = "<b>Error:</b> " + result.error;
+        return;
+    }
 
-        "<b>Predicted Final Grade:</b> " + result.predicted_grade +
+    document.getElementById("result").innerHTML =
+        "<b>Predicted Final Grade:</b> " + result.predicted_g3 +
         "<br><br>" +
-        "<b>Risk Level:</b> " + result.risk_level;
+        "<b>Risk Level:</b> " + result.predicted_risk;
 
 }
 
