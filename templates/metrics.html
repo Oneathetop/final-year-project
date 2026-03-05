@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Model Performance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Model Performance</h1>
+
+<div class="box">
+
+<h3>Regression Performance</h3>
+
+<p><b>R² Score:</b> {{ metrics.regression_r2 }}</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Classification Performance</h3>
+
+<p><b>Accuracy:</b> {{ metrics.classification_accuracy }}</p>
+
+<p><b>F1 Score:</b> {{ metrics.classification_f1 }}</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Confusion Matrix</h3>
+
+<img src="{{ url_for('static', filename='images/confusion_matrix.png') }}" width="500">
+
+</div>
+
+</body>
+
+</html>

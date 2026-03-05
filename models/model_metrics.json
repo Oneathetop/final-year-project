@@ -1,0 +1,5 @@
+{
+    "regression_r2": 0.8862607002615945,
+    "classification_accuracy": 0.8516746411483254,
+    "classification_f1": 0.8389476272436687
+}

@@ -1,13 +1,15 @@
-from flask import Blueprint, jsonify, render_template
+from flask import Blueprint, render_template
+import json
+import os
 
 metrics_bp = Blueprint("metrics", __name__)
 
+@metrics_bp.route("/metrics")
+def metrics_page():
 
-@metrics_bp.get("/")
-def home():
-    return render_template("index.html")
+    metrics_path = os.path.join("models", "model_metrics.json")
 
+    with open(metrics_path) as f:
+        metrics = json.load(f)
 
-@metrics_bp.get("/health")
-def health():
-    return jsonify({"status": "ok"})
+    return render_template("metrics.html", metrics=metrics)

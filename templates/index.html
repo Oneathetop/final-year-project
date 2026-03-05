@@ -6,11 +6,13 @@
     <title>Student Academic Risk Prediction</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
 </head>
 
 <body>
 
     <h1>Student Academic Risk Prediction System</h1>
+    <p><a href="/metrics">View Model Metrics</a></p>
 
     <div class="container">
 
@@ -19,14 +21,35 @@
 
             <h3>Enter Student Information</h3>
 
-            <label for="studytime">Study Time (1-4 hours)</label>
-            <input id="studytime" type="number" min="1" max="4" placeholder="Enter 1-4">
+            <label>First Period Grade (G1)</label>
+<input id="G1" type="number" min="0" max="20">
 
-            <label for="failures">Past Class Failures</label>
-            <input id="failures" type="number" min="0" placeholder="Enter 0 or more">
+<label>Second Period Grade (G2)</label>
+<input id="G2" type="number" min="0" max="20">
 
-            <label for="absences">School Absences</label>
-            <input id="absences" type="number" min="0" placeholder="Enter 0 or more">
+<label>Absences</label>
+<input id="absences" type="number" min="0" max="100">
+
+<label>Study Time (1–4)</label>
+<input id="studytime" type="number" min="1" max="4">
+
+<label>Age</label>
+<input id="age" type="number" min="15" max="22">
+
+<label>Family Relationship Quality (1–5)</label>
+<input id="famrel" type="number" min="1" max="5">
+
+<label>Free Time (1–5)</label>
+<input id="freetime" type="number" min="1" max="5">
+
+<label>Health (1–5)</label>
+<input id="health" type="number" min="1" max="5">
+
+<label>Going Out (1–5)</label>
+<input id="goout" type="number" min="1" max="5">
+
+<label>Past Failures</label>
+<input id="failures" type="number" min="0" max="4">
 
             <button onclick="predictStudent()">Predict Performance</button>
 
@@ -44,20 +67,7 @@
         </div>
 
     </div>
-
-    <!-- CSV Upload Section -->
-    <div class="box csv-section">
-
-        <h3>Batch Prediction (CSV Upload)</h3>
-
-        <input type="file" id="fileInput" accept=".csv">
-
-        <button onclick="sendCSV()">Predict from CSV</button>
-
-        <div id="csvResult" class="result"></div>
-
-    </div>
-
+    
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
 </body>

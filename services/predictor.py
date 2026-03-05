@@ -1,42 +1,20 @@
+from jaraco import classes
 import pandas as pd
 
 from services.model_loader import regression_model, classification_model
 
 # Default values for features not provided by the user
 DEFAULT_FEATURES = {
-    "school": "GP",
-    "sex": "M",
-    "age": 17,
-    "address": "U",
-    "famsize": "GT3",
-    "Pstatus": "T",
-    "Medu": 2,
-    "Fedu": 2,
-    "Mjob": "other",
-    "Fjob": "other",
-    "reason": "course",
-    "guardian": "mother",
-    "traveltime": 2,
-    "studytime": 2,
-    "failures": 0,
-    "schoolsup": "no",
-    "famsup": "yes",
-    "paid": "no",
-    "activities": "no",
-    "nursery": "yes",
-    "higher": "yes",
-    "internet": "yes",
-    "romantic": "no",
-    "famrel": 4,
-    "freetime": 3,
-    "goout": 3,
-    "Dalc": 1,
-    "Walc": 1,
-    "health": 3,
-    "absences": 0,
-    "G1": 10,
-    "G2": 10,
-    "subject": "math",
+"G1":10,
+"G2":10,
+"absences":0,
+"studytime":2,
+"age":17,
+"famrel":4,
+"freetime":3,
+"health":3,
+"goout":3,
+"failures":0
 }
 
 def predict_single(input_dict):
@@ -52,9 +30,16 @@ def predict_single(input_dict):
     grade_prediction = regression_model.predict(df)[0]
     risk_prediction = classification_model.predict(df)[0]
 
+    risk_probs = classification_model.predict_proba(df)[0]
+
+    classes = classification_model.classes_
+
+    probabilities = dict(zip(classes, risk_probs))
+
     return {
         "predicted_g3": round(float(grade_prediction), 2),
-        "predicted_risk": risk_prediction
+        "predicted_risk": risk_prediction,
+        "risk_probabilities": probabilities
     }
 
 
