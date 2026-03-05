@@ -19,14 +19,14 @@
 
             <h3>Enter Student Information</h3>
 
-            <label>Study Time</label>
-            <input id="studytime" type="number" min="1" max="4">
+            <label for="studytime">Study Time (1-4 hours)</label>
+            <input id="studytime" type="number" min="1" max="4" placeholder="Enter 1-4">
 
-            <label>Failures</label>
-            <input id="failures" type="number" min="0">
+            <label for="failures">Past Class Failures</label>
+            <input id="failures" type="number" min="0" placeholder="Enter 0 or more">
 
-            <label>Absences</label>
-            <input id="absences" type="number" min="0">
+            <label for="absences">School Absences</label>
+            <input id="absences" type="number" min="0" placeholder="Enter 0 or more">
 
             <button onclick="predictStudent()">Predict Performance</button>
 
