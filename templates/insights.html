@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Model Insights</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Model Insights</h1>
+
+<div class="box">
+
+<h3>Top Feature Importances</h3>
+
+<p>
+This chart shows which features most influence the prediction of final student performance.
+</p>
+
+<img src="{{ url_for('static', filename='images/feature_importance.png') }}" width="600">
+
+</div>
+
+</body>
+
+</html>
