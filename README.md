@@ -174,34 +174,6 @@ Users can input student information through a web interface and receive:
 - Model performance dashboard
 - Feature importance insights
 
-## 🏗 Project Architecture
-
-project/
-│
-├── app.py
-├── config.py
-│
-├── models/
-│   ├── regression_pipeline.pkl
-│   ├── classification_pipeline.pkl
-│
-├── routes/
-│   ├── predict_routes.py
-│   ├── metrics_routes.py
-│   ├── insights_routes.py
-│
-├── services/
-│   ├── model_loader.py
-│   ├── predictor.py
-│
-├── training/
-│   └── train_models.py
-│
-├── static/
-│   └── images/
-│
-└── templates/
-
 ## 🛠 Tech Stack
 
 Machine Learning:
